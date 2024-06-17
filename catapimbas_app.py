@@ -36,7 +36,7 @@ with st.sidebar:
     st.markdown('**Use sua base de dados**')
     arquivo_upload = st.file_uploader("Faça o upload do seu csv aqui:")
     if arquivo_upload is not None:
-        df = pd.read_csv(arquivo_upload, index_col=False)
+        df = pd.read_csv(arquivo_upload, index_col=True, sep)
 
     st.header('2. Defina seus Parâmetros')
     split_size = st.slider('Proporção da divisão dos dados (% para o treino)', 10, 90, 75, 5)
