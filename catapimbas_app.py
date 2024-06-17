@@ -34,12 +34,12 @@ with st.sidebar:
     st.header('1. Database de Entrada')
 
     st.markdown('**Use sua base de dados**')
-    arquivo_upload = st.file_uploader("Faça o upload do seu csv aqui:", type=["csv"])
+    arquivo_upload = st.file_uploader("Faça o upload do seu csv aqui:")
     if arquivo_upload is not None:
         df = pd.read_csv(arquivo_upload, index_col=False)
 
     st.header('2. Defina seus Parâmetros')
-    split_size = st.slider('Proporção da divisão dos dados (% para o treino)', 10, 90, 80, 1)
+    split_size = st.slider('Proporção da divisão dos dados (% para o treino)', 10, 90, 75, 5)
 
     st.subheader('2.1. Parâmetros de Aprendizado')
     with st.expander('Abrir parâmetros'):
