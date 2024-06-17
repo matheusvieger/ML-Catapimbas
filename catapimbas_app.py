@@ -125,7 +125,7 @@ if arquivo_upload:
             rf_results[col] = pd.to_numeric(rf_results[col], errors = 'ignore')
         rf_results = rf_results.round(2)
         
-    status.update(label = "Status", state = "Finalizado", expanded = False)
+    status.update(label = "Status", state = "complete", expanded = False)
 
     # Informações dos Dados para o usuário:
     st.header('Dados Importados', divider = 'blue')
