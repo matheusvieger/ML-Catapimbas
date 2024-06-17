@@ -51,7 +51,7 @@ with st.sidebar:
     st.subheader('2.2. Parâmetros Gerais')
     with st.expander('Abrir parâmetros', expanded=False):
         random_state = st.slider('Random State:', 0, 1000, 42, 1)
-        criterion = st.select_slider('Critério para determinar qualidade dos dados (criterion):', options=['Erro Quadrático (MSE)', 'Erro Absoluto (MAE)'])
+        criterion = st.select_slider('Critério para determinar qualidade dos dados (criterion):', options=['squared_error', 'absolute_error'])
         bootstrap = st.select_slider('Amostras Bootstrap para construção das árvores? (bootstrap)', options=[True, False])
         oob_score = st.select_slider('Usar amostrar prontas para estimar o R2 em dados não vistos (oob_score)?', options=[False, True])
 
@@ -114,12 +114,7 @@ if arquivo_upload:
         st.write("Apresentando métricas de desempenho...")
         time.sleep(sleep_time)
 
-        if 'Erro Quadrático (MSE)' in criterion:
-            crit = 'squared_error'
-        else:
-            crit = 'absolute error'
-
-        criterion_string = ' '.join([x.capitalize() for x in criterion.split(crit)])
+        criterion_string = ' '.join([x.capitalize() for x in criterion.split('_')])
 
         rf_results = pd.DataFrame(['Random forest', train_mse, train_r2, test_mse, test_r2]).transpose()
         rf_results.columns = ['Method', f'Training {criterion_string}', 'Training R2', f'Test {criterion_string}', 'Test R2']
