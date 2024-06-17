@@ -209,7 +209,7 @@ if arquivo_upload:
     s_y_test = pd.Series(y_test, name = 'Atual').reset_index(drop = True)
     s_y_test_pred = pd.Series(y_test_pred, name = 'Predição').reset_index(drop = True)
     df_test = pd.DataFrame(data = [s_y_test, s_y_test_pred], index = None).T
-    df_test['classe'] = 'teste'
+    df_test['Classe'] = 'teste'
     
     df_prediction = pd.concat([df_train, df_test], axis = 0)
     
@@ -223,8 +223,8 @@ if arquivo_upload:
     with prediction_col[2]:
         scatter = alt.Chart(df_prediction).mark_circle(size = 60).encode(
                         x = 'Atual',
-                        y = 'Predito',
-                        color = 'classe'
+                        y = 'Predição',
+                        color = 'Classe'
                   )
         st.altair_chart(scatter, theme = 'streamlit', use_container_width = True)
 
