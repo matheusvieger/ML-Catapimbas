@@ -185,7 +185,7 @@ if arquivo_upload:
     importances = rf.feature_importances_
     feature_names = list(X.columns)
     forest_importances = pd.Series(importances, index = feature_names)
-    df_importance = forest_importances.reset_index().rename(columns = {'index': 'Recurso', 0: 'Valor'})
+    df_importance = forest_importances.reset_index().rename(columns = {'index': 'feature', 0: 'value'})
     
     bars = alt.Chart(df_importance).mark_bar(size=40).encode(
              x='value:Q',
