@@ -199,8 +199,7 @@ if arquivo_upload:
         st.header('Importância do Recurso', divider = 'blue')
         bars = alt.Chart(rf_results).mark_bar().encode(
                         alt.Column('Recurso'),
-                        alt.Y('Valor', axis=alt.Axis(grid=False)), 
-                        alt.Color('Classe')
+                        alt.Y('Valor', axis=alt.Axis(grid=False))
                   )
         st.altair_chart(bars, theme = 'streamlit', use_container_width = True)
 
