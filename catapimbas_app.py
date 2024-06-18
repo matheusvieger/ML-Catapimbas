@@ -197,6 +197,11 @@ if arquivo_upload:
         st.dataframe(rf_results.T.reset_index().rename(columns = {'index': 'Parâmetro', 0: 'Valor'}))
     with performance_col[2]:
         st.header('Importância do Recurso', divider = 'blue')
+        bars = alt.Chart(rf_results).mark_bar().encode(
+                        x = 'Recurso',
+                        y = 'Valor',
+                        color = 'Classe'
+                  )
         st.altair_chart(bars, theme = 'streamlit', use_container_width = True)
 
     # Resultados da predição
