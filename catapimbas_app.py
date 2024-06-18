@@ -187,9 +187,10 @@ if arquivo_upload:
     forest_importances = pd.Series(importances, index = feature_names)
     df_importance = forest_importances.reset_index().rename(columns = {'index': 'Recurso', 0: 'Valor'})
     
-    bars = alt.Chart(df_importance).mark_bar(size = 40).encode(
-             x = 'valor:Q',
-             y = alt.Y('recurso:N', sort = '-x')).properties(height=250)
+    bars = alt.Chart(df_importance).mark_bar(size=40).encode(
+             x='value:Q',
+             y=alt.Y('feature:N', sort='-x')
+           ).properties(height=250)
 
     performance_col = st.columns((2, 0.2, 3))
     with performance_col[0]:
@@ -197,7 +198,6 @@ if arquivo_upload:
         st.dataframe(rf_results.T.reset_index().rename(columns = {'index': 'Parâmetro', 0: 'Valor'}))
     with performance_col[2]:
         st.header('Importância do Recurso', divider = 'blue')
-        bars = alt.Chart(rf_results).mark_bar()
         st.altair_chart(bars, theme = 'streamlit', use_container_width = True)
 
     # Resultados da predição
