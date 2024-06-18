@@ -11,7 +11,7 @@ Contextualizando, este é parte integrante de um projeto proposto pelos professo
 
 O aplicativo foi criado no Streamlit.io. Para acessá-lo:
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://catapimbas-ml.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ml-catapimbas.streamlit.app/)
 
 ## Sobre a empresa
 
